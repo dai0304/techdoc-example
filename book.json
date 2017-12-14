@@ -1,0 +1,27 @@
+{
+  "root": "./content",
+  "language": "ja",
+  "title": "Technical document example",
+  "styles": {
+    "website": "styles/website.css",
+    "pdf": "styles/pdf.css"
+  },
+  "pdf": {
+    "fontSize": 11,
+    "fontFamily": "MigMix 1P"
+  },
+  "plugins": [
+    "include",
+    "include-codeblock",
+    "uml",
+    "-sharing",
+    "alerts",
+    "back-to-top-button",
+    "ace"
+  ],
+  "pluginsConfig": {
+    "include-codeblock": {
+      "template": "acefull"
+    }
+  }
+}

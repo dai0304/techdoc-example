@@ -1,0 +1,46 @@
+version: 2
+jobs:
+  build:
+    working_directory: ~/workspace
+    docker:
+      - image: dai0304/techdoc-ja:latest
+    steps:
+      - checkout
+      - restore_cache:
+          keys:
+            - techdoc-{{ .Branch }}-{{ .Revision }}
+            - techdoc-{{ .Branch }}
+      - run:
+          name: System information
+          command: |
+            echo "Node $(node -v)"
+            gitbook current
+            aws --version
+            java -version
+      - run:
+          name: Build
+          command: |
+            gitbook install
+            gitbook build .
+            if [ -n "${PDF_BASENAME}" ]; then
+              gitbook pdf . _book/${PDF_BASENAME}.pdf
+            fi
+      - store_artifacts:
+          name: Store artifacts
+          path: _book
+          destination: _book
+      - deploy:
+          name: Deploy artifacts
+          command: |
+            if [ -n "${AWS_S3_LOCATION_MASTER}" -a "${CIRCLE_BRANCH}" == "master" ]; then
+              DEPLOY_LOCATION=${AWS_S3_LOCATION_MASTER}
+            elif [ -n "${AWS_S3_LOCATION_SNAPSHOT}" ]; then
+              DEPLOY_LOCATION=${AWS_S3_LOCATION_SNAPSHOT%/}/${CIRCLE_BRANCH}
+            fi
+            if [ -n "${DEPLOY_LOCATION}" ]; then
+              aws s3 sync _book ${DEPLOY_LOCATION} --delete
+            fi
+      - save_cache:
+          key: techdoc-{{ .Branch }}-{{ .Revision }}
+          paths:
+            - ~/workspace/node_modules
