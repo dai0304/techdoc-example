@@ -14,9 +14,12 @@ jobs:
           name: System information
           command: |
             echo "Node $(node -v)"
-            gitbook current
-            aws --version
             java -version
+            echo "RedPen $(redpen -v)"
+            echo "textlint $(textlint -v)"
+            gitbook current
+            dot -V
+            aws --version
       - run:
           name: Check by RedPen
           command: find ./content -name "*.md" -type f | xargs redpen -l 0 -L ja -f markdown -c ./config/redpen-conf.xml
