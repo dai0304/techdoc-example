@@ -1,0 +1,63 @@
+<redpen-conf lang="ja">
+  <validators>
+    <validator name="SentenceLength" />
+    <validator name="InvalidExpression">
+      <property name="dict" value="redpen-dict/stopwords.txt"/>
+    </validator>
+    <validator name="CommaNumber" />
+    <validator name="SuggestExpression">
+      <property name="dict" value="redpen-dict/suggest.txt"/>
+    </validator>
+    <validator name="InvalidSymbol"/>
+    <validator name="KatakanaEndHyphen">
+      <property name="dict" value="redpen-dict/katakana.txt"/>
+    </validator>
+    <validator name="KatakanaSpellCheck"/>
+    <validator name="SectionLength"/>
+    <validator name="ParagraphNumber"/>
+    <validator name="SpaceBetweenAlphabeticalWord"/>
+    <validator name="SuccessiveWord"/>
+    <validator name="DoubleNegative" />
+    <validator name="FrequentSentenceStart" />
+    <validator name="ParenthesizedSentence">
+      <property name="max_nesting_level" value="1"/>
+      <property name="max_count" value="3"/>
+      <property name="max_length" value="10"/>
+    </validator>
+    <validator name="HankakuKana"/>
+    <validator name="Okurigana"/>
+    <validator name="GappedSection"/>
+    <validator name="LongKanjiChain">
+      <property name="max_len" value="6"/>
+    </validator>
+    <validator name="SectionLevel"/>
+    <validator name="JapaneseAmbiguousNounConjunction" />
+    <validator name="JapaneseJoyoKanji" />
+    <validator name="JapaneseNumberExpression" />
+    <validator name="JapaneseAnchorExpression" />
+    <validator name="SuccessiveSentence" />
+    <validator name="DoubledConjunctiveParticleGa" />
+    <validator name="ListLevel" />
+  </validators>
+  <symbols>
+    <symbol name="FULL_STOP" value="。" invalid-chars="．" />
+    <symbol name="COMMA" value="、" invalid-chars="，"/>
+    <symbol name="COLON" value=":" />
+    <symbol name="AMPERSAND" value="&amp;" />
+    <symbol name="QUESTION_MARK" value="?" />
+    <symbol name="DOLLAR_SIGN" value="$" />
+    <symbol name="LESS_THAN_SIGN" value="&lt;" />
+    <symbol name="GREATER_THAN_SIGN" value="&gt;" />
+    <symbol name="VERTICAL_BAR" value="|" />
+    <symbol name="PERCENT_SIGN" value="%" />
+    <symbol name="EXCLAMATION_MARK" value="!" />
+    <symbol name="LEFT_CURLY_BRACKET" value="{" />
+    <symbol name="RIGHT_CURLY_BRACKET" value="}" />
+    <symbol name="EQUAL_SIGN" value="=" />
+    <symbol name="LEFT_SQUARE_BRACKET" value="[" />
+    <symbol name="RIGHT_SQUARE_BRACKET" value="]" />
+    <symbol name="LEFT_PARENTHESIS" value="(" />
+    <symbol name="RIGHT_PARENTHESIS" value=")" />
+    <symbol name="AT_MARK" value="@" />
+  </symbols>
+</redpen-conf>

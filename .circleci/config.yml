@@ -3,7 +3,7 @@ jobs:
   build:
     working_directory: ~/workspace
     docker:
-      - image: dai0304/docker-techdoc-ja:feature_support-textlint
+      - image: dai0304/docker-techdoc-ja:latest
     steps:
       - checkout
       - restore_cache:
@@ -17,6 +17,9 @@ jobs:
             gitbook current
             aws --version
             java -version
+      - run:
+          name: Check by RedPen
+          command: find ./content -name "*.md" -type f | xargs redpen -l 0 -L ja -f markdown -c ./config/redpen-conf.xml
       - run:
           name: Check by textlint
           command: textlint ${TEXTLINT_OPTS} --config ./config/textlint.json ./content
