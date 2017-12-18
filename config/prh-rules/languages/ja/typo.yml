@@ -1,0 +1,21 @@
+# Rules for Japanese typo
+meta:
+  reviewer:
+    - vvakame
+    - mhidaka
+    - daisuke_m
+  rules:   https://github.com/prh/rules
+
+version: 1
+rules:
+  - expected: なるほど
+    pattern:  なほるど
+
+  - expected: ライブラリ
+    pattern:  ラブライブ # C87でやらかした人がいましたね？
+    prh: C87でざきさんがやらかした思い出
+
+  - expected: コード保管
+    pattern:  コード補完
+    prh: コード補完の間違いと思われます。
+

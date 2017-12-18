@@ -3,7 +3,7 @@ jobs:
   build:
     working_directory: ~/workspace
     docker:
-      - image: dai0304/techdoc-ja:latest
+      - image: dai0304/docker-techdoc-ja:feature_support-textlint
     steps:
       - checkout
       - restore_cache:
@@ -17,6 +17,9 @@ jobs:
             gitbook current
             aws --version
             java -version
+      - run:
+          name: Check by textlint
+          command: textlint ${TEXTLINT_OPTS} --config ./config/textlint.json ./content
       - run:
           name: Build
           command: |

@@ -1,0 +1,33 @@
+{
+  "rules": {
+    "no-todo": true,
+    "no-exclamation-question-mark": true,
+    "no-empty-section": true,
+    "date-weekday-mismatch": true,
+    "period-in-list-item": {
+      "periodMarks": [".", "．"]
+    },
+    "no-nfd": true,
+    "no-surrogate-pair": true,
+    "common-misspellings": {
+      "ignore": []
+    },
+    "ja-no-redundant-expression": true,
+    "no-mixed-zenkaku-and-hankaku-alphabet": true,
+    "textlint-rule-max-length-of-title": {
+      "#": 25,
+      "##": 30
+    },
+    "ja-unnatural-alphabet": true,
+    "@textlint-ja/textlint-rule-no-insert-dropping-sa": true
+  },
+  "filters": {
+    "comments": true,
+    "whitelist": {
+      "allow": [
+        "ignored-word",
+        "/\\d+/"
+      ]
+    }
+  }
+}
