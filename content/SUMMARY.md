@@ -1,5 +1,5 @@
 # Summary
 
 * [Introduction](README.md)
-* [Section1](section1.md)
-* [Section2](section2.md)
+* [Docker イメージ](section1.md)
+* [推奨プロジェクト構成](section2.md)
