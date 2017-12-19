@@ -38,11 +38,11 @@ Gitbook によるオーサリング環境です。Markdown で記述してくだ
 
 ```uml
 @startuml
-Alice -> Bob: Authentication Request
-Bob --> Alice: Authentication Response
+アリス -> ボブ: Authentication Request
+ボブ --> アリス: Authentication Response
 
-Alice -> Bob: Another authentication Request
-Alice <-- Bob: another authentication Response
+アリス -> ボブ: Another authentication Request
+アリス <-- ボブ: another authentication Response
 @enduml
 ```
 
